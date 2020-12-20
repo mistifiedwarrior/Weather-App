@@ -4,7 +4,7 @@
   "description": "weather forecasting app",
   "main": "app.js",
   "scripts": {
-    "start": ". ./setup.sh; node app.js",
+    "start": "sh setup.sh",
     "test": "mocha --colors"
   },
   "author": "",
