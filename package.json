@@ -5,13 +5,15 @@
   "main": "app.js",
   "scripts": {
     "start": "sh setup.sh",
-    "test": "mocha --colors"
+    "test": "nyc mocha --colors"
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "mocha": "^8.2.1",
-    "request": "^2.88.2",
-    "test": "^0.6.0"
+  "dependencies": {},
+  "devDependencies": {
+    "nyc": "^15.1.0",
+    "sinon": "^9.2.2",
+    "chai": "^4.2.0",
+    "mocha": "^8.2.1"
   }
 }
