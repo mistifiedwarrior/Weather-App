@@ -1,7 +1,8 @@
 const request = require('request');
 
 const address = 'Ballia';
-const url = `http://api.weatherstack.com/current?access_key=${process.env.ACCESS_TOKEN}&query=${address}`;
+const token = process.env.ACCESS_TOKEN;
+const url = `http://api.weatherstack.com/current?access_key=${token}&query=${address}`;
 
 request({url}, (error, response) => {
   if (error) {
