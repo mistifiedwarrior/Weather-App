@@ -4,14 +4,11 @@
   "description": "weather forecasting app",
   "main": "app.js",
   "scripts": {
-    "start": "sh setup.sh",
     "test": "mocha --colors"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "mocha": "^8.2.1",
-    "request": "^2.88.2",
-    "test": "^0.6.0"
+   
   }
 }
