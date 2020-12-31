@@ -1,0 +1,65 @@
+// const book = {
+//   title: 'Ego is the enemy',
+//   author: 'Ryan Holiday',
+// };
+// const bookJSON = JSON.stringify(book);
+// fs.writeFileSync('1-json.json', bookJSON);
+
+// console.log(bookJSON);
+// const parsedData = JSON.parse(bookJSON);
+// console.log(parsedData.author);
+
+// const dataBuffer = fs.readFileSync('1-json.json');
+// const dataJSON = dataBuffer.toString();
+// const data = JSON.parse(dataJSON);
+// console.log(data.author);
+
+// console.log(dataBuffer.toString());
+
+
+
+==================for sorting the values===================
+// const a = [5, 9, 3, 6, 7, 1, 8, 2, 4];
+// const sorter = (a) => {
+//   for (i = 0; i < a.length; i++) {
+//     let low = i;
+//     for (let j = i + 1; j < a.length; j++) {
+//       if (a[j] < a[low]) {
+//         low = j;
+//       }
+//     }
+//     if (a[i] > a[low]) {
+//       let tmp = a[i];
+//       a[i] = a[low];
+//       a[low] = tmp;
+//     }
+//   }
+// };
+
+// sorter(a);
+// console.log(a);
+
+
+// 698t9Y@74961 & UR202000770918 - URISE ID & PASSWORD
+
+//API ACCESS KEY FOR WEATHER STACK = fb90918118afe67d007110a860a7892
+
+const request = require('request');
+
+const address = 'Ballia';
+const url = `http://api.weatherstack.com/current?access_key=${process.env.ACCESS_TOKEN}&query=${address}`;
+
+request({url}, (error, response) => {
+  if (error) {
+    console.log('unable to connect to weatherStack server ');
+    return;
+  }
+  const data = JSON.parse(response.body);
+  if (data.error) {
+    console.log(data.error.info);
+    return;
+  }
+  const currentData = `${data.current.weather_descriptions} It is currently ${data.current.temperature} degrees out, and there is ${data.current.precip} % chance of raining `;
+  console.log(currentData);
+  console.log(data.location.lat, data.location.lon);
+});
