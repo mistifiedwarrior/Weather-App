@@ -10,4 +10,4 @@ curl https://raw.githubusercontent.com/mistifiedwarrior/Weather-App/shivi/runAll
 
 node runAllTest.js
 
-rm tempCountVowels.js tempCountConsonants.js tempIsPalindrome.js runAllTest.js runTest.sh
+rm tempCountVowels.js tempCountConsonants.js tempIsPalindrome.js runAllTest.js
