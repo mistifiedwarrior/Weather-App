@@ -1,6 +1,6 @@
-cat countVowels.js >> tempCountVowels.js
-cat countConsonants.js >> tempCountConsonants.js
-cat isPalindrome.js >> tempIsPalindrome.js
+cat countVowels.js > tempCountVowels.js
+cat countConsonants.js > tempCountConsonants.js
+cat isPalindrome.js > tempIsPalindrome.js
 
 echo "\nmodule.exports = { countVowels }" >> tempCountVowels.js
 echo "\nmodule.exports = { countConsonants }" >> tempCountConsonants.js
