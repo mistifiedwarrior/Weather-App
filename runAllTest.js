@@ -3,9 +3,11 @@ const { countConsonants } = require('./countConsonants');
 const { isPalindrome } = require('./isPalindrome');
 
 let score = 0;
+let total = 0;
 
 const assert = (actual, expected) => {
   if (actual === expected) score++;
+  total++;
 };
 
 assert(countVowels('cyst'), 0);
@@ -21,4 +23,4 @@ assert(isPalindrome('abba'), true);
 assert(isPalindrome('ab'), false);
 assert(isPalindrome('A a'), true);
 
-console.log(`${score}/10`);
+console.log(`Your score:\n\t${score}/${total}`);
