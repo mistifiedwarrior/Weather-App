@@ -1,6 +1,6 @@
-const { countVowels } = require('./countVowels');
-const { countConsonants } = require('./countConsonants');
-const { isPalindrome } = require('./isPalindrome');
+const { countVowels } = require('./tempCountVowels');
+const { countConsonants } = require('./tempCountConsonants');
+const { isPalindrome } = require('./tempIsPalindrome');
 
 let score = 0;
 let total = 0;
