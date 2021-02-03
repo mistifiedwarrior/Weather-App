@@ -5,25 +5,21 @@ console.log(__dirname);
 console.log(path.join(__dirname, '../public'));
 
 const app = express();
+
+//defining path for express config:
 const publicDirectory = path.join(__dirname, '../public');
+const viewPath = path.join(__dirname, '../views');
+
+//set up handlebars engines and views location:
+app.set('view engine', 'hbs');
+app.set('views', viewPath);
+
+//Setup static directory to serve:
 app.use(express.static(publicDirectory));
 
-// app.get('/help', (req, res) => {
-//   res.send([
-//     {
-//       name: 'Aditi',
-//       age: 17,
-//     },
-//     {
-//       name: 'Dipali',
-//       age: 14,
-//     },
-//   ]);
-// });
-
-// app.get('/about', (req, res) => {
-//   res.send('<h2>About Page</h2>');
-// });
+app.get('/view', (req, res) => {
+  res.render('index');
+});
 
 app.get('/weather', (req, res) => {
   res.send({

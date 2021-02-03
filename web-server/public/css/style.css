@@ -6,6 +6,9 @@ h2 {
 }
 
 img {
-  width: 200px;
-  height: 100px;
+  width: 400px;
+  height: 300px;
+  margin-top: 20px;
+  margin-left: auto;
+  padding: 100px;
 }
