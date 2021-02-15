@@ -1,6 +1,6 @@
 console.log('client side javascript file is loaded');
 
-fetch('http://localhost:4000/weather?address=lucknow').then((response) => {
+fetch('/weather?address=lucknow').then((response) => {
   response.json().then((data) => {
     // console.log(data);
     if (data.error) {
@@ -26,22 +26,20 @@ weatherForm.addEventListener('submit', (e) => {
   message1.textContent = 'loading...';
   message2.textContent = '';
 
-  fetch(`http://localhost:4000/weather?address=${searchLocation}`).then(
-    (response) => {
-      response.json().then((data) => {
-        // console.log(data);
-        if (data.error) {
-          // console.log(data.error);
-          message1.textContent = data.error;
-        } else {
-          // console.log(data.request.query);
-          // console.log(data.current.weather_descriptions);
-          message1.textContent = data.request.query;
-          message2.textContent = data.current.weather_descriptions;
-        }
-      });
-    }
-  );
+  fetch(`/weather?address=${searchLocation}`).then((response) => {
+    response.json().then((data) => {
+      // console.log(data);
+      if (data.error) {
+        // console.log(data.error);
+        message1.textContent = data.error;
+      } else {
+        // console.log(data.request.query);
+        // console.log(data.current.weather_descriptions);
+        message1.textContent = data.request.query;
+        message2.textContent = data.current.weather_descriptions;
+      }
+    });
+  });
 
   // console.log(searchLocation);
 });
