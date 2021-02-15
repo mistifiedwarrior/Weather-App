@@ -1,0 +1,47 @@
+console.log('client side javascript file is loaded');
+
+fetch('http://localhost:4000/weather?address=lucknow').then((response) => {
+  response.json().then((data) => {
+    // console.log(data);
+    if (data.error) {
+      console.log(data.error);
+    } else {
+      console.log(data.request.query);
+      console.log(data.current.weather_descriptions);
+    }
+  });
+});
+
+const weatherForm = document.querySelector('form');
+const search = document.querySelector('input');
+const message1 = document.querySelector('#message-1');
+const message2 = document.querySelector('#message-2');
+
+// message1.textContent = 'From Javascript';
+
+weatherForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  const searchLocation = search.value;
+  message1.textContent = 'loading...';
+  message2.textContent = '';
+
+  fetch(`http://localhost:4000/weather?address=${searchLocation}`).then(
+    (response) => {
+      response.json().then((data) => {
+        // console.log(data);
+        if (data.error) {
+          // console.log(data.error);
+          message1.textContent = data.error;
+        } else {
+          // console.log(data.request.query);
+          // console.log(data.current.weather_descriptions);
+          message1.textContent = data.request.query;
+          message2.textContent = data.current.weather_descriptions;
+        }
+      });
+    }
+  );
+
+  // console.log(searchLocation);
+});
