@@ -10,14 +10,56 @@
   <div class="main-content">
     {{>header}}
     <p>Weather Forecasts</p>
-    <form action="">
+    <form action="" id="weather-form">
       <input type="text" placeholder="location">
       <button>Search</button>
     </form>
 
-    <p id="message-1"></p>
-    <p id="message-2"></p>
+    <div class="container">
+        <div id="error"></div>
+        <div class="loader">Loading...</div>
 
+        <div class="details">
+            <div id="location"></div>
+            <div class="temp-details">
+                <div id="temp"><span></span></div>
+                <div id="description"></div>
+            </div>
+            <div class="weather-details">
+                <h3>Weather Details</h3>
+                <div>
+                    <div>
+                        <div id="pressure"></div>
+                        <div>Air Pressure</div>
+                    </div>
+                    <div>
+                        <div id="visibility"></div>
+                        <div>Visibility</div>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <div id="humidity"></div>
+                        <div>Humidity</div>
+                    </div>
+                    <div>
+                        <div id="wind-speed"></div>
+                        <div id="wind-direction"></div>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <div id="latitude"></div>
+                        <div>Latitude</div>
+                    </div>
+                    <div>
+                        <div id="longitude"></div>
+                        <div>Longitude</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
   </div>
   {{>footer}}
   <script src="/js/app.js"></script>
