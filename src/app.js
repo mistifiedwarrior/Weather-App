@@ -14,11 +14,18 @@ app.set('views', viewPath);
 hbs.registerPartials(partialPath);
 app.use(express.static(publicDirectory));
 
-app.get('/', (req, res) => {
-  res.render('index', {
-    title: 'Weather',
-    name: 'Aditi',
-  });
+const details = {title: 'Weather', name: 'Aditi'};
+
+app.get('/', (_req, res) => {
+  res.render('index', details);
+});
+
+app.get('/help', (_req, res) => {
+  res.render('help', details);
+});
+
+app.get('/about', (_req, res) => {
+  res.render('about', details);
 });
 
 app.get('/weather', getWeatherDetails);
