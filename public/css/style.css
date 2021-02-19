@@ -97,9 +97,14 @@ button {
 
 .temp-details {
     display: flex;
+    justify-content: space-between;
     font-size: 20px;
 }
 
 .temp-details > div {
     padding: 16px;
+}
+
+#icon {
+    border-radius: 10%;
 }

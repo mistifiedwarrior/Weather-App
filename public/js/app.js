@@ -1,18 +1,8 @@
-const weatherForm = document.querySelector('#weather-form');
-const search = document.querySelector('input');
-const $loader = document.querySelector('.loader');
-const $error = document.querySelector('#error');
-const $details = document.querySelector('.details');
-const $location = document.querySelector('#location');
-const $temp = document.querySelector('#temp');
-const $description = document.querySelector('#description');
-const $pressure = document.querySelector('#pressure');
-const $visibility = document.querySelector('#visibility');
-const $humidity = document.querySelector('#humidity');
-const $windSpeed = document.querySelector('#wind-speed');
-const $windDirection = document.querySelector('#wind-direction');
-const $longitude = document.querySelector('#longitude');
-const $latitude = document.querySelector('#latitude');
+const getElement = selector => document.querySelector(selector)
+
+const $loader = getElement('.loader');
+const $error = getElement('#error');
+const $details = getElement('.details');
 
 const showError = (error) => {
   $error.style.display = 'block';
@@ -28,25 +18,27 @@ const showLoader = () => {
 const showDetails = (current, location) => {
   $error.style.display = 'none';
   $details.style.display = 'block';
-  $location.innerText = `${location.name} ${location.region}, ${location.country}`;
-  $temp.innerText = `${current.temperature}°C`;
-  $description.innerText = `${current.weather_descriptions.join(', ')}`;
-  $pressure.innerText = `${current.pressure}MB`;
-  $visibility.innerText = `${current.visibility}km`;
-  $humidity.innerText = `${current.humidity}%`;
-  $windSpeed.innerText = `${current.wind_speed}km/h`;
-  $windDirection.innerText = `${current.wind_dir} wind`;
-  $longitude.innerText = `${location.lon}`;
-  $latitude.innerText = `${location.lat}`;
+  getElement('#location').innerText = `${location.name} ${location.region}, ${location.country}`;
+  getElement('#temp').innerText = `${current.temperature}°C`;
+  getElement('#description').innerText = `${current.weather_descriptions.join(', ')}`;
+  getElement("#icon").src = current.weather_icons[0]
+  getElement("#is-day").innerText = current.is_day === 'yes' ? "Day" : "Night"
+  getElement('#pressure').innerText = `${current.pressure}MB`;
+  getElement('#visibility').innerText = `${current.visibility}km`;
+  getElement('#humidity').innerText = `${current.humidity}%`;
+  getElement('#wind-speed').innerText = `${current.wind_speed}km/h`;
+  getElement('#wind-direction').innerText = `${current.wind_dir} wind`;
+  getElement('#longitude').innerText = `${location.lon}`;
+  getElement('#latitude').innerText = `${location.lat}`;
 };
 
 
 const main = () => {
-  weatherForm.addEventListener('submit', (e) => {
+  getElement('#weather-form').addEventListener('submit', (e) => {
     e.preventDefault();
     showLoader();
 
-    fetch(`/weather?address=${search.value}`)
+    fetch(`/weather?address=${getElement('input').value}`)
       .then((res) => res.json())
       .then(({error, current, location}) => {
         $loader.style.display = 'none';
