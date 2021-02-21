@@ -30,4 +30,8 @@ app.get('/about', (_req, res) => {
 
 app.get('/weather', getWeatherDetails);
 
+app.use('*', (_req, res) => {
+  res.render('404', details);
+});
+
 module.exports = app;
