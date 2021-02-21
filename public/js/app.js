@@ -13,19 +13,21 @@ const $visibility = document.querySelector('#visibility');
 const $lat = document.querySelector('#lat');
 const $lon = document.querySelector('#lon');
 const $icon = document.querySelector('#img');
+const $loader = document.querySelector('#loader');
 
 weatherForm.addEventListener('submit', (e) => {
   e.preventDefault();
 
   const searchLocation = search.value;
-  $location.innerText = 'loading...';
-  $description.innerText = '';
+  $details.style.display = 'none';
+  $error.style.display = 'none';
+  $loader.style.display = 'block';
 
   fetch(`/weather?address=${searchLocation}`).then((response) => {
     response.json().then((data) => {
+      $loader.style.display = 'none';
       if (data.error) {
         $error.innerText = data.error;
-        $details.style.display = 'none';
         $error.style.display = 'block';
       } else {
         const {location, current} = data;
@@ -41,7 +43,6 @@ weatherForm.addEventListener('submit', (e) => {
         $lat.innerText = `Latitudes: ${location.lat}`;
         $lon.innerText = `Longitudes: ${location.lon}`;
         $details.style.display = 'block';
-        $error.style.display = 'none';
       }
     });
   });

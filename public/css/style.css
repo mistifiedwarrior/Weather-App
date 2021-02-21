@@ -1,7 +1,7 @@
 body {
   color: #333333;
-  font-family: aerial;
-  max-width: 650px;
+  font-family: sans-serif;
+  max-width: 550px;
   margin: 0 auto;
   padding: 0 16px;
 
@@ -49,4 +49,29 @@ button {
   background: #888888;
   color: white;
   padding: 8px;
+}
+.details,
+#error,
+#loader {
+  display: none;
+  margin-top: 16px;
+}
+
+#location {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.details > div > div {
+  font-weight: 200;
+  font-size: 20px;
+}
+
+#error {
+  color: red;
+}
+.details > div {
+  display: flex;
+  justify-content: space-between;
+  margin: 16px;
 }
